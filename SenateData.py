@@ -15,7 +15,6 @@ color_counts = {
     '#CAF0F8': 2   # Dem Term-Limited
 }
 
-# Assign values for stacking
 rep_unopposed = color_counts['#880D1E']
 rep_blowout = color_counts['#D00000']
 rep_solid = color_counts['#CE4257']
@@ -27,7 +26,6 @@ dem_solid = color_counts['#53A2BE']
 dem_close = color_counts['#90E0EF']
 dem_term = color_counts['#CAF0F8']
 
-# Stack values and color orders
 rep_stacked_vals_ordered = [rep_unopposed, rep_blowout, rep_solid, rep_close, rep_term]
 dem_stacked_vals_ordered = [dem_unopposed, dem_blowout, dem_solid, dem_close, dem_term]
 rep_stacked_colors_ordered = ['#880D1E', '#D00000', '#CE4257', "#E37696", '#FFB5C2']
@@ -37,7 +35,6 @@ labelsDem = ['Unopposed', 'Blowout', 'Solid', 'Close', 'Term-Limited']
 
 fig, ax = plt.subplots(figsize=(8, 6))
 
-# Republicans
 bottom = 0
 for value, color, label in zip(rep_stacked_vals_ordered, rep_stacked_colors_ordered, labelsRep):
     if value > 0:
@@ -45,7 +42,6 @@ for value, color, label in zip(rep_stacked_vals_ordered, rep_stacked_colors_orde
         ax.text("Republicans", bottom + value / 2, f"{label}", ha='center', va='center', fontsize=9, color='white')
     bottom += value
 
-# Democrats
 bottom = 0
 for value, color, label in zip(dem_stacked_vals_ordered, dem_stacked_colors_ordered, labelsDem):
     if value > 0:
@@ -53,7 +49,6 @@ for value, color, label in zip(dem_stacked_vals_ordered, dem_stacked_colors_orde
         ax.text("Democrats", bottom + value / 2, f"{label}", ha='center', va='center', fontsize=9, color='white')
     bottom += value
 
-# Labels and legend
 ax.set_ylabel("Number of Seats")
 ax.set_title("Florida Senate seats up for election in 2026: Seat Breakdown by Previous Election Results")
 
